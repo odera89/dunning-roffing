@@ -4,7 +4,7 @@
 		margin: 0;
 
 		.form {
-			background: #f87d0e;
+			background: $primary-color;
 			color: $white;
 			padding: rem-calc(30 20);
 
@@ -28,8 +28,8 @@
       [type=week],
       textarea {
         background: transparent;
-        border-bottom: 3px solid #f98e2d;
-        color: #fecc9e;
+        border-bottom: 3px solid scale-color($primary-color, $lightness: 15%);
+        color: $white;
 
         &:focus {
         	box-shadow: none;
@@ -44,7 +44,7 @@
       }
 
       label {
-      	color: #fecc9e;
+      	color: scale-color($primary-color, $lightness: 45%);
       	text-transform: uppercase;
       	font-weight: 900;
       }
