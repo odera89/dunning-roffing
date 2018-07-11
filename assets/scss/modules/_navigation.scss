@@ -1,0 +1,415 @@
+// Navigation breakpoints
+.mobile-menu,
+.site-title-bar {
+  @include hide-for(medium);
+}
+
+.desktop-menu,
+.site-navigation .top-bar-left {
+  @include show-for(medium);
+}
+
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+
+.title-bar {
+  .site-mobile-title {
+    padding: rem-calc(10 0);
+    img {
+      max-width: 150px;
+    }
+  }
+
+  .menu-icon {
+    float: right;
+    width: 25px;
+    height: 17px;
+    margin-top: rem-calc(20);
+
+    &:after {
+      height: 3px;
+    }
+  }
+}
+
+.site-header {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+}
+
+
+.mobile-menu,
+.mobile-off-canvas-menu {
+  li {
+    a {
+      text-transform: uppercase;
+      color: $black;
+      font-weight: 500;
+      font-size: rem-calc(15);
+      position: relative;
+      
+      &:hover,
+      &:focus {
+        color: $primary-color;
+      }
+    }
+
+    &.button {
+      &.phone {
+        background: $white;
+        color: $primary-color;
+
+        a {
+          color: $primary-color;
+        }
+
+        i {
+          width: 20px;
+          height: 16px;
+          background: url('../images/icon-phone.png') no-repeat;
+          background-size: 100%;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      &.primary {
+        a {
+          color: $white;
+          padding: 0;
+          font-weight: 700;
+
+          i {
+            position: relative;
+            left: 0;
+            width: 10px;
+            height: 16px;
+            background-color: transparent;
+            margin-left: rem-calc(10);
+          }
+        }
+
+        &:hover {
+          a {
+            i {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // submenu arrow
+  .is-accordion-submenu-parent {
+    > a::after {
+      border-color: $accordionmenu-arrow-color transparent transparent;
+    }
+    &.active > a::after {
+      border-color: $menu-item-color-active transparent transparent;
+    }
+  }
+
+  // current page
+  .current_page_item > a {
+    color: $primary-color;
+  }
+}
+
+// Tablet and desktop menu
+.desktop-menu.menu {
+  // margin-top: rem-calc(10);
+
+  li {
+    position: relative;
+
+    &:last-child {
+      a {
+        padding-right: 0;
+      }
+      &:after {
+        display: none;
+      }
+    }
+
+    a {
+      text-transform: uppercase;
+      color: $black;
+      font-weight: 500;
+      position: relative;
+      padding: rem-calc(31 15);
+
+      &:hover,
+      &:focus {
+        color: $primary-color;
+      }
+    }
+
+    // Button
+    &.button {
+      padding: rem-calc(26);
+
+      &.phone {
+        background: $white;
+        padding: rem-calc(30 26);
+
+        a {
+          color: $primary-color;
+        }
+
+        i {
+          width: 20px;
+          height: 16px;
+          background: url('../images/icon-phone.png') no-repeat;
+          background-size: 100%;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: rem-calc(10);
+          margin-left: 0;
+        }
+      }
+
+      a {
+        color: $white;
+        font-weight: 700;
+        padding: 0;
+        vertical-align: middle;
+      }
+
+      i {
+        background-color: transparent;
+        width: 10px;
+        height: 16px;
+        margin-left: rem-calc(20);
+        position: relative;
+        left: 0;
+      }
+
+      &:hover {
+        i {
+          background-color: transparent;
+        }
+      }
+    }
+
+    // Active
+    &.current-menu-item,
+    &.active {
+      > a {
+        text-align: center;
+        color: $primary-color;
+        background: transparent;
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          width: 40px;
+          bottom: 0;
+          left: 50%;
+          margin-left: -20px;
+          height: 5px;
+          background: $primary-color;
+        }
+      }
+    }
+
+    // Dropdown
+    &.is-dropdown-submenu-parent {
+      > a {
+        padding-right: 30px;
+
+        &::after {
+          border: inset 5px;
+          border-color: $primary-color transparent transparent;
+          margin-top: -3px;
+          right: 10px;
+        }
+      }
+    }
+
+    &.opens-left > .is-dropdown-submenu {
+      top: 100%;
+      left: 0;
+      right: auto;
+      border: 0;
+      z-index: 9999;
+
+      li {
+        text-align: center;
+        &:after {
+          display: none;
+        }
+
+        a {
+          padding: rem-calc(16 16);
+          font-size: rem-calc(14);
+
+          &:before {
+            display: none;
+          }
+
+          &:hover,
+          &:focus {
+            border-bottom: 0;
+            margin-bottom: 0;
+            background: $primary-color;
+            color: $white;
+
+            &:before {
+
+            }
+          }
+        }
+
+        &.current-menu-item {
+          > a {
+            border-bottom: 0;
+            margin-bottom: 0;
+            background: $primary-color;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  // submenu arrow
+  // li.is-dropdown-submenu-parent {
+  //   > a::after {
+  //     border-color: $accordionmenu-arrow-color transparent transparent;
+  //   }
+  //   &.active > a::after {
+  //     border-color: $menu-item-color-active transparent transparent;
+  //   }
+  // }
+
+  @include breakpoint(medium down) {
+    li {
+      a {
+        font-size: rem-calc(14);
+        padding: rem-calc(27 10);
+      }
+
+      &.button {
+        padding: rem-calc(16);
+
+        a {
+          color: $white;
+          font-weight: 700;
+          padding: 0;
+          font-size: rem-calc(14);
+        }
+      }
+    }
+  }
+}
+
+.site-navigation {
+  // Desktop Logo
+  .site-desktop-title {
+    padding: rem-calc(16 30);
+    position: relative;
+    background: $white;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      height: 200%;
+      background: $white;
+      bottom: 100%;
+      width: 100%;
+      left: 0;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      height: 30%;
+      background: $white;
+      top: 100%;
+      width: 100%;
+      left: 0;
+    }
+
+    a {
+      display: block;
+    }
+
+    img {
+      max-width: 180px;
+    }
+
+    @include breakpoint(medium down) {
+      img {
+        max-width: 140px;
+      }
+    }
+  }
+
+  @include breakpoint(small only) {
+    padding: 0; // prevents container visibility on small screens
+  }
+}
+
+// Top Header
+.top-header {
+  .menu {
+    li {
+      display: inline-block;
+
+      a:not(.button) {
+        color: $white;
+        font-size: rem-calc(20);
+        font-weight: bold;
+      }
+      
+      i.phone {
+        width: 32px;
+        height: 26px;
+        background: url('../images/icon-phone-white.png') no-repeat;
+        background-size: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: rem-calc(10);
+        margin-left: 0;
+        position: relative;
+        top: -1px;
+      }
+
+      .button {
+        padding: rem-calc(25 70 25 20);
+        i {
+          background-color: $primary-color;
+        }
+
+        @include breakpoint(small down) {
+          width: 100%;
+          padding: rem-calc(15 70 15 20);
+        }
+      }
+      @include breakpoint(small down) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+
+// WP post navigation
+.post-navigation {
+  @include clearfix;
+}
+
+.nav-previous {
+  float:left;
+}
+
+.nav-next {
+  float:right;
+}

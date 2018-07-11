@@ -1,0 +1,31 @@
+.page-template-testimonials {
+	.testimonials-list {
+		li {
+			// padding: 25px 35px 15px;
+    	// background: #eee;
+    	margin-bottom: rem-calc(30);
+
+    	.box {
+    		background: #f7f7f7;
+    		text-align: center;
+
+    		.rating {
+    			display: inline-block;
+    			float: none;
+    		}
+
+    		p {
+    			font-style: italic;
+    			color: $black;
+    			font-weight: 200;
+    		}
+
+    		span {
+					font-weight: 900;
+					text-transform: uppercase;
+					color: $black;
+    		}
+    	}
+		}
+	}
+}
