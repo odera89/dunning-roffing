@@ -27,6 +27,7 @@
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
 	<header class="site-header" role="banner">
+
 		<div class="top-header text-center medium-text-right">
 			<div class="row">
 				<div class="medium-12 columns">
@@ -43,7 +44,7 @@
 		</div>
 
 		<nav class="site-navigation top-bar" role="navigation">
-			<div class="row">
+			<!-- <div class="row"> -->
 				<div class="medium-12 columns">
 					<div class="top-bar-left">
 						<div class="site-desktop-title top-bar-title">
@@ -53,12 +54,16 @@
 					<div class="top-bar-right">
 						<?php foundationpress_top_bar_r(); ?>
 
+						<div class="right-content">
+							<?php the_field('top_header_content', 'option'); ?>
+						</div>
+
 						<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
 							<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
 						<?php endif; ?>
 					</div>
 				</div>
-			</div>
+			<!-- </div> -->
 		</nav>
 	</header>
 

@@ -16,7 +16,7 @@
 
 .title-bar {
   .site-mobile-title {
-    padding: rem-calc(10 0);
+    padding: rem-calc(0 0);
     img {
       max-width: 150px;
     }
@@ -26,7 +26,7 @@
     float: right;
     width: 25px;
     height: 17px;
-    margin-top: rem-calc(20);
+    margin-top: rem-calc(15);
 
     &:after {
       height: 3px;
@@ -47,14 +47,14 @@
   li {
     a {
       text-transform: uppercase;
-      color: $black;
+      color: $white;
       font-weight: 500;
       font-size: rem-calc(15);
       position: relative;
       
       &:hover,
       &:focus {
-        color: $primary-color;
+        color: $white;
       }
     }
 
@@ -116,13 +116,15 @@
 
   // current page
   .current_page_item > a {
-    color: $primary-color;
+    // color: $primary-color;
   }
 }
 
 // Tablet and desktop menu
 .desktop-menu.menu {
-  // margin-top: rem-calc(10);
+  margin-top: rem-calc(10);
+  display: inline-block;
+  vertical-align: middle;
 
   li {
     position: relative;
@@ -138,14 +140,14 @@
 
     a {
       text-transform: uppercase;
-      color: $black;
+      color: $white;
       font-weight: 500;
       position: relative;
       padding: rem-calc(31 15);
 
       &:hover,
       &:focus {
-        color: $primary-color;
+        color: $white;
       }
     }
 
@@ -201,7 +203,7 @@
     &.active {
       > a {
         text-align: center;
-        color: $primary-color;
+        color: $white;
         background: transparent;
         position: relative;
 
@@ -209,11 +211,11 @@
           content: '';
           position: absolute;
           width: 40px;
-          bottom: 0;
+          bottom: -3px;
           left: 50%;
           margin-left: -20px;
-          height: 5px;
-          background: $primary-color;
+          height: 3px;
+          background: $white;
         }
       }
     }
@@ -225,7 +227,7 @@
 
         &::after {
           border: inset 5px;
-          border-color: $primary-color transparent transparent;
+          border-color: $white transparent transparent;
           margin-top: -3px;
           right: 10px;
         }
@@ -257,7 +259,8 @@
           &:focus {
             border-bottom: 0;
             margin-bottom: 0;
-            background: $primary-color;
+            // background: $primary-color;
+            background: scale-color($primary-color, $lightness: -15%);
             color: $white;
 
             &:before {
@@ -312,29 +315,29 @@
 .site-navigation {
   // Desktop Logo
   .site-desktop-title {
-    padding: rem-calc(16 30);
+    padding: rem-calc(16 0);
     position: relative;
-    background: $white;
+    // background: $white;
     
-    &:before {
-      content: '';
-      position: absolute;
-      height: 200%;
-      background: $white;
-      bottom: 100%;
-      width: 100%;
-      left: 0;
-    }
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   height: 200%;
+    //   background: $white;
+    //   bottom: 100%;
+    //   width: 100%;
+    //   left: 0;
+    // }
 
-    &:after {
-      content: '';
-      position: absolute;
-      height: 30%;
-      background: $white;
-      top: 100%;
-      width: 100%;
-      left: 0;
-    }
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   height: 30%;
+    //   background: $white;
+    //   top: 100%;
+    //   width: 100%;
+    //   left: 0;
+    // }
 
     a {
       display: block;
@@ -357,14 +360,33 @@
 }
 
 // Top Header
-.top-header {
+.top-header,
+.right-content {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: rem-calc(40);
+  position: relative;
+
+  &:before {
+    content: '';
+    border-left: 2px solid $white;
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    width: 2px;
+    line-height: 30px;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    left: 5%;
+  }
   .menu {
     li {
       display: inline-block;
 
       a:not(.button) {
         color: $white;
-        font-size: rem-calc(20);
+        font-size: rem-calc(16);
         font-weight: bold;
       }
       
@@ -382,9 +404,9 @@
       }
 
       .button {
-        padding: rem-calc(25 70 25 20);
+        padding: rem-calc(20 70 20 20);
         i {
-          background-color: $primary-color;
+          // background-color: $primary-color;
         }
 
         @include breakpoint(small down) {
@@ -396,6 +418,22 @@
         width: 100%;
       }
     }
+  }
+
+  @include breakpoint(large down) {
+    display: none;
+  }
+}
+
+.top-header {
+  display: none;
+  margin: rem-calc(10 0);
+  &:before {
+    display: none;
+  }
+
+  @include breakpoint(large down) {
+    display: block;
   }
 }
 

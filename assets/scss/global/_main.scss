@@ -121,6 +121,33 @@ form {
     }
 	}
 
+  &.white:not(.hollow) {
+    background: $white;
+    color: $primary-color;
+    position: relative;
+
+    i {
+      background-image: url('../images/button-arrow-blue.png');
+      background-repeat: no-repeat;
+      background-color: $white;
+      background-position: center center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 100%;
+      margin: 0;
+    }
+
+    &:hover {
+      background: scale-color($primary-color, $lightness: -15%);
+      color: $white;
+      i {
+        // background-color: $primary-color;
+      }      
+    }
+  }
+
 	&.hollow {
 		&.primary {
 			color: $black-blue;
