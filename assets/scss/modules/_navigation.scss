@@ -26,7 +26,7 @@
     float: right;
     width: 25px;
     height: 17px;
-    margin-top: rem-calc(15);
+    margin-top: rem-calc(6);
 
     &:after {
       height: 3px;
@@ -344,12 +344,20 @@
     }
 
     img {
-      max-width: 180px;
+      max-width: 284px;
+    }
+
+    @include breakpoint(xlarge down) {
+      img {
+        max-width: 200px;
+        padding: rem-calc(9 0);
+      }
     }
 
     @include breakpoint(medium down) {
       img {
         max-width: 140px;
+        padding: 0;
       }
     }
   }
