@@ -1087,6 +1087,7 @@ ul {
     a {
       display: inline-block;
       margin: rem-calc(0 20);
+      max-width: 150px;
     }
   }
 }

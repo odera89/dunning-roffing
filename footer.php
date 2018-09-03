@@ -16,7 +16,7 @@
 			<div class="medium-12 columns text-center">
 				<div class="logos-list">
 					<?php foreach ($logos as $key => $logo) {
-						echo '<a href="'.$logo['logo_link'].'"><img src="'.$logo['logo_image'].'" alt="logo" /></a>';
+						echo '<a href="'.$logo['logo_link'].'" target="_blank"><img src="'.$logo['logo_image'].'" alt="logo" /></a>';
 					} ?>
 				</div>
 			</div>
