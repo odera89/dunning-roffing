@@ -1198,4 +1198,8 @@ ul {
   form {
     text-align: left;
   }
+
+  @include breakpoint(small down) {
+    width: 100%;
+  }
 }
